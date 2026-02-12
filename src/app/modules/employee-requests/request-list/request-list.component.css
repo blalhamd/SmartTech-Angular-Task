@@ -1,0 +1,49 @@
+.review-inbox-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+/* Custom black-label badges */
+.font-black-xs {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.05rem;
+}
+
+/* Subtle Diff Backgrounds */
+.bg-warning-subtle {
+  background-color: #fef3c7 !important; /* Soft Amber */
+  color: #92400e !important;
+}
+
+.bg-success-subtle {
+  background-color: #d1fae5 !important; /* Soft Emerald */
+  color: #065f46 !important;
+}
+
+.bg-primary-subtle {
+  background-color: #e0e7ff !important; /* Soft Indigo */
+  color: #4338ca !important;
+}
+
+/* Grouping visual separation */
+.border-top-section {
+  border-top: 2px solid #f1f5f9 !important;
+}
+
+.border-bottom-section {
+  border-bottom: 8px solid #f8fafc !important; /* Creates a gap between requests */
+}
+
+/* Table Hover */
+tbody tr:hover {
+  background-color: transparent; /* Disable default bootstrap hover for better comparison clarity */
+}
+
+.font-monospace {
+  font-family: 'SFMono-Regular', Consolas, monospace;
+}

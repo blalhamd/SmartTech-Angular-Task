@@ -1,0 +1,21 @@
+.footer {
+  position: fixed;
+  bottom: -100px; /* initially hidden */
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #0f5bac);
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: bottom 0.4s ease-in-out;
+  z-index: 1000;
+  margin-top: 20px !important;
+  &.show {
+    bottom: 0; /* slide up */
+  }
+
+  p,
+  small {
+    margin: 0;
+  }
+}

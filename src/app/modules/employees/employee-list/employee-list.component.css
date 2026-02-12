@@ -1,0 +1,39 @@
+.employee-directory-wrapper {
+  background-color: #f8fafc; /* Light slate background */
+  min-height: 100vh;
+}
+
+/* Modern Pill Badges (subtle look) */
+.bg-success-subtle {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+}
+
+.bg-danger-subtle {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
+/* Table Header styling */
+thead.bg-light {
+  background-color: #f1f5f9 !important;
+}
+
+.table > :not(caption) > * > * {
+  border-bottom-color: #f1f5f9;
+}
+
+/* Action Buttons hover effect */
+.btn-outline-primary:hover, .btn-outline-warning:hover {
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+/* Card rounding */
+.card {
+  border-radius: 12px;
+}
+
+.font-monospace {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}

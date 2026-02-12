@@ -1,0 +1,56 @@
+<div class="form-wrapper d-flex align-items-center justify-content-center p-3 p-md-5">
+  <div class="card border-0 shadow-lg rounded-4 overflow-hidden w-100" style="max-width: 550px;">
+
+    <div class="bg-primary p-4 p-md-5 text-dark">
+      <h2 class="fw-bold mb-1">Request Data Update</h2>
+      <p class="text-dark opacity-75 mb-0">Propose changes for an existing employee.</p>
+    </div>
+
+    <div *ngIf="isLoading" class="p-5 text-center">
+      <div class="spinner-border text-primary mb-3" role="status"></div>
+      <p class="text-muted fw-bold animate-pulse">Fetching current employee data...</p>
+    </div>
+
+    <form *ngIf="!isLoading" [formGroup]="updateForm" (ngSubmit)="onSubmit()" class="p-4 mb-3 p-md-5">
+
+      <div class="bg-light p-3 rounded-3 mb-4 border border-light-subtle">
+        <label class="text-uppercase text-muted fw-black font-xs d-block mb-1">Target Employee ID</label>
+        <code class="text-dark small">{{ employeeId|slice:0:5 }}...</code>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12">
+          <label class="form-label fw-bold text-secondary small text-uppercase">Full Name</label>
+          <input type="text" formControlName="fullName"
+                 class="form-control form-control-lg rounded-3 border-light-subtle"
+                 [class.is-invalid]="updateForm.get('fullName')?.touched && updateForm.get('fullName')?.invalid">
+        </div>
+
+        <div class="col-md-7">
+          <label class="form-label fw-bold text-secondary small text-uppercase">Position</label>
+          <input type="text" formControlName="position"
+                 class="form-control form-control-lg rounded-3 border-light-subtle"
+                 [class.is-invalid]="updateForm.get('position')?.touched && updateForm.get('position')?.invalid">
+        </div>
+
+        <div class="col-md-5">
+          <label class="form-label fw-bold text-secondary small text-uppercase">New Salary</label>
+          <input type="number" formControlName="salary"
+                 class="form-control form-control-lg rounded-3 border-light-subtle"
+                 [class.is-invalid]="updateForm.get('salary')?.touched && updateForm.get('salary')?.invalid">
+        </div>
+
+        <div class="col-12 pt-3 d-flex gap-3">
+          <button type="submit" [disabled]="updateForm.invalid"
+                  class="btn btn-primary btn-lg flex-grow-1 fw-bold rounded-3 shadow-sm py-3 text-dark">
+            Submit Changes
+          </button>
+
+          <button type="button" routerLink="/employees" class="btn btn-link text-decoration-none text-muted fw-bold px-3">
+            Discard
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

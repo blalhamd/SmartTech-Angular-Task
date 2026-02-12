@@ -1,0 +1,45 @@
+.form-wrapper {
+  background-color: #f8fafc; /* Professional light slate */
+  min-height: 100vh;
+}
+
+/* Custom rounded-4 for card */
+.rounded-4 {
+  border-radius: 1.25rem !important;
+}
+
+/* Custom Form Control styling */
+.form-control {
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  background-color: #ffffff;
+  border-color: #4f46e5; /* Primary indigo focus */
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  outline: none;
+}
+
+/* Form Labels */
+.form-label {
+  letter-spacing: 0.025em;
+  margin-bottom: 0.5rem;
+}
+
+/* Submit Button Custom Shadow (Indigo-specific) */
+.btn-primary.shadow-sm {
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2) !important;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+  border-color: #4338ca;
+}

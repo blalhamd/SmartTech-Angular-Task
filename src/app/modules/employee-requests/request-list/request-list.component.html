@@ -1,0 +1,92 @@
+<div class="review-inbox-wrapper py-5">
+  <div class="container-fluid px-md-5">
+
+    <div class="mb-4">
+      <h2 class="fw-bold text-dark">Review Inbox</h2>
+      <p class="text-secondary">Carefully review proposed changes before finalizing them.</p>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+      <div class="table-responsive">
+        <table class="table align-middle mb-0">
+          <thead class="bg-light border-bottom">
+            <tr class="text-uppercase small fw-bold text-muted">
+              <th class="px-4 py-3" style="width: 120px;">Type</th>
+              <th class="px-4 py-3">Field</th>
+              <th class="px-4 py-3">Current (Old)</th>
+              <th class="px-4 py-3">Proposed (New)</th>
+              <th class="px-4 py-3 text-center" style="width: 180px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let req of pagedData?.items">
+
+              <tr class="border-top-section">
+                <td class="px-4 py-4 align-top" [rowSpan]="3">
+                  <span class="rounded-1 text-uppercase font-black p-2 d-block"
+                    [ngClass]="{
+                      'bg-primary-subtle text-primary': req.actionType.toString() == 'Create',
+                      'bg-warning-subtle text-warning-emphasis': req.actionType.toString() == 'Update',
+                      'bg-danger-subtle text-danger': req.actionType.toString() == 'Delete'
+                    }">
+                    {{ req.actionType }}
+                  </span>
+                </td>
+
+                <td class="px-4 py-2 text-muted small fw-bold text-uppercase">Full Name</td>
+                <td class="px-4 py-2 text-secondary">{{ parseOldData(req.oldData)?.fullName || '-' }}</td>
+                <td class="px-4 py-2 fw-bold"
+                    [ngClass]="hasChanged(req, 'fullName') ? 'text-warning-emphasis bg-warning-subtle rounded-3' : 'text-dark'">
+                  {{ req.fullName }}
+                </td>
+
+                <td class="px-4 py-4 text-center align-middle" [rowSpan]="3">
+
+                  <div class="d-grid gap-2">
+                    <button (click)="onApprove(req)" class="btn btn-primary btn-sm fw-bold py-2 shadow-sm">
+                      <i class="bi bi-check-lg me-1"></i> Approve
+                    </button>
+                    <button (click)="onReject(req)" class="btn btn-outline-danger btn-sm fw-bold py-2">
+                      <i class="bi bi-x-lg me-1"></i> Reject
+                    </button>
+                  </div>
+
+                  <div *ngIf="req.status != Status.Pending" class="text-muted small italic font-monospace">
+                    <i class="bi bi-check-circle-fill text-success" *ngIf="req.status.toString() == 'Approved'"></i>
+                    <i class="bi bi-x-circle-fill text-danger" *ngIf="req.status.toString() == 'Rejected'"></i>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-4 py-2 text-muted small fw-bold text-uppercase">Position</td>
+                <td class="px-4 py-2 text-secondary">{{ parseOldData(req.oldData)?.position || '-' }}</td>
+                <td class="px-4 py-2 fw-bold"
+                    [ngClass]="hasChanged(req, 'position') ? 'text-warning-emphasis bg-warning-subtle rounded-3' : 'text-dark'">
+                  {{ req.position }}
+                </td>
+              </tr>
+
+              <tr class="border-bottom-section">
+                <td class="px-4 py-2 text-muted small fw-bold text-uppercase">Salary</td>
+                <td class="px-4 py-2 text-secondary font-monospace">{{ (parseOldData(req.oldData)?.salary | currency) || '-' }}</td>
+                <td class="px-4 py-2 fw-bold"
+                    [ngClass]="hasChanged(req, 'salary') ? 'text-success bg-success-subtle rounded-3' : 'text-dark'">
+                  {{ req.salary | currency }}
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+
+        <div *ngIf="isLoading" class="p-5 text-center text-muted">
+          <div class="spinner-border spinner-border-sm text-primary me-2"></div> Processing...
+        </div>
+
+        <div *ngIf="!isLoading && (!pagedData?.items || pagedData?.items?.length === 0)" class="p-5 text-center text-muted">
+          No pending requests found.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

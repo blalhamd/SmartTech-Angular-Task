@@ -1,0 +1,37 @@
+.form-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.rounded-4 {
+  border-radius: 1.25rem !important;
+}
+
+.font-xs {
+  font-size: 0.65rem;
+}
+
+.fw-black {
+  font-weight: 900;
+}
+
+/* Custom Amber Focus */
+.form-control:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.15);
+}
+
+/* Warning Button Shadow */
+.btn-warning.shadow-sm {
+  box-shadow: 0 10px 15px -3px rgba(255, 193, 7, 0.3) !important;
+}
+
+/* Animation for loading text */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}

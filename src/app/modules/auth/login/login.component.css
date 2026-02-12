@@ -1,0 +1,43 @@
+/* .row {
+  padding-top: 10%;
+}
+
+.card {
+  background-color: #eee;
+}
+ */
+
+ .login-container {
+  height: 100vh;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.invalid-feedback {
+  font-size: 0.9rem;
+}
+
+button[disabled] {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.spinner-border {
+  vertical-align: middle;
+}

@@ -1,0 +1,50 @@
+<div class="employee-details-wrapper py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+
+          <div class="card-header bg-white border-bottom-0 p-4 d-flex justify-content-between align-items-center">
+            <h4 class="fw-bold text-dark mb-0">Employee Profile</h4>
+            <span class="badge rounded-pill bg-primary-subtle text-primary px-3 py-2 text-uppercase font-bold-xs">
+              Approved Record
+            </span>
+          </div>
+
+          <div class="card-body p-4">
+            <div class="row g-4">
+              <div class="col-sm-6">
+                <label class="text-uppercase text-muted fw-bold small-label d-block mb-1">Full Name</label>
+                <span class="fs-5 fw-semibold text-dark">{{ employee?.fullName }}</span>
+              </div>
+
+              <div class="col-sm-6">
+                <label class="text-uppercase text-muted fw-bold small-label d-block mb-1">Position</label>
+                <span class="fs-5 text-secondary">{{ employee?.position }}</span>
+              </div>
+
+              <div class="col-sm-6">
+                <label class="text-uppercase text-muted fw-bold small-label d-block mb-1">Current Salary</label>
+                <span class="fs-5 text-secondary font-monospace">{{ employee?.salary | currency }}</span>
+              </div>
+
+              <div class="col-sm-6">
+                <label class="text-uppercase text-muted fw-bold small-label d-block mb-1">System ID</label>
+                <span class="text-muted font-monospace">{{ employee?.id | slice:0:8 }}...</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer bg-light border-top-0 px-4 py-3 d-flex justify-content-end">
+            <button routerLink="/employees" class="btn btn-link text-decoration-none text-secondary fw-medium px-0">
+              Close Details
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
